@@ -1,0 +1,37 @@
+# Demonstration Commands for Proxy Server
+# Run these commands in separate terminals while the proxy server is running
+
+# 1. Basic HTTP Request
+curl -x http://127.0.0.1:8888 http://httpbin.org/get
+
+# 2. HTTP Request with Headers
+curl -x http://127.0.0.1:8888 -H "User-Agent: CustomProxy/1.0" http://httpbin.org/headers
+
+# 3. HTTPS Request (CONNECT tunneling)
+curl -x http://127.0.0.1:8888 https://www.google.com
+
+# 4. POST Request
+curl -x http://127.0.0.1:8888 -X POST -d "test=data" http://httpbin.org/post
+
+# 5. HEAD Request
+curl -x http://127.0.0.1:8888 -I http://httpbin.org/get
+
+# 6. Test Blocked Domain (add example.com to blocked_domains.txt first)
+curl -x http://127.0.0.1:8888 http://example.com
+
+# 7. View Logs (while server is running)
+# On Windows PowerShell:
+Get-Content logs/proxy.log -Tail 20 -Wait
+
+# On Linux/Mac:
+tail -f logs/proxy.log
+
+# 8. Multiple Concurrent Requests (PowerShell)
+1..10 | ForEach-Object -Parallel { curl -x http://127.0.0.1:8888 http://httpbin.org/get }
+
+# 9. Test with wget (if available)
+wget -e http_proxy=http://127.0.0.1:8888 http://httpbin.org/get
+
+# 10. Test with Python requests library
+python -c "import requests; proxies={'http': 'http://127.0.0.1:8888', 'https': 'http://127.0.0.1:8888'}; print(requests.get('http://httpbin.org/get', proxies=proxies).text)"
+

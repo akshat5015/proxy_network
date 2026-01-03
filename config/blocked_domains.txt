@@ -1,0 +1,22 @@
+# Blocked domains and IPs
+# One entry per line
+# Lines starting with # are comments
+# Use *.example.com to block all subdomains of example.com
+
+# Example blocked domains (uncomment to use):
+# example.com
+# badsite.org
+# *.malicious.com
+
+# Example blocked IPs:
+# 192.0.2.5
+# 203.0.113.10
+
+
+example.com
+
+example.com
+
+example.com
+
+example.com

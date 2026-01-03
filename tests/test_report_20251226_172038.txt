@@ -1,0 +1,26 @@
+Proxy Server Test Report
+Generated: 2025-12-26 17:20:38
+
+Total Tests: 10
+Passed: 10
+Failed: 0
+
+Detailed Results:
+PASS - Proxy Server Running
+  Status: 200
+PASS - HTTP GET Request
+  Status: 200, Size: 307 bytes
+PASS - HTTPS CONNECT
+  Status: 200, Size: 20079 bytes
+PASS - Domain Blocking
+  Status: 403 (expected 403)
+PASS - POST Request
+  Status: 200
+PASS - Concurrent Requests (5)
+  5/5 succeeded in 1.66s
+PASS - Log File Exists
+PASS - Log Entries Present
+  Found 4 ALLOWED entries in 80 total lines
+PASS - Timestamps Present
+PASS - Unreachable Destination
+  Error handled gracefully
